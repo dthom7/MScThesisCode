@@ -41,6 +41,7 @@ TransDecoder.Predict \
     -t ${transcriptome_fa} \
     --retain_pfam_hits ${pfam_search} \
     --retain_blastp_hits ${uniref90_search} \
-    --output_dir ${output_dir}
+    --output_dir ${output_dir} \
+    --single_best_only
 
 echo "Completed with exit status ${?}"

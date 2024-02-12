@@ -67,14 +67,14 @@ print(sessionInfo())
 #### Read in information
 
 # Annotation summary
-gene_info <- read.delim("input/gene_annotation_summary_with_uniref90.tsv",
+gene_info <- read.delim("input/gene_annotation_summary.tsv",
                         row.names = 1,
                         header = FALSE)
 gene_annot_summary <- gene_info$V2
 names(gene_annot_summary) <- rownames(gene_info)
 
 # GO annotations
-go_annot <- read.delim("input/go_annotation_with_uniref90.gene.tsv", header = FALSE)
+go_annot <- read.delim("input/go_annotation.gene.tsv", header = FALSE)
 # Prepare for clusterProfiler
 colnames(go_annot) <- c("gene", "GO")
 go_annot <- go_annot[, c("GO", "gene")]
@@ -82,7 +82,7 @@ go_annot <- separate_rows(go_annot, GO, sep = ",")
 go_annot <- unique(go_annot)
 
 # Full annotation
-full_annotation_report <- read.delim("input/trinotate_report_with_uniref90.tsv")
+full_annotation_report <- read.delim("input/trinotate_report.tsv")
 
 # Extract KEGG annotations
 kegg_annot <- full_annotation_report[, c("X.gene_id", "EggNM.KEGG_Pathway")]
@@ -635,7 +635,7 @@ if (!file.exists(checkpoint23)) {
     summary_stats(gene_trans_map_file = "input/merged.wf_nuc_align.gene_transcript_map.tsv",
                   transcripts_fasta_file = "input/merged.wf_nuc_align.fa",
                   cds_fasta_file = "input/merged.wf_nuc_align.fa.transdecoder.cds",
-                  trinotate_report_file = "input/trinotate_report_with_uniref90.tsv")
+                  trinotate_report_file = "input/trinotate_report.tsv")
     file.create(checkpoint23)
 } else {
     print("Skipping step 23")

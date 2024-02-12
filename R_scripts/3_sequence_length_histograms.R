@@ -39,6 +39,6 @@ plot_sequence_length_histograms <- function(transcript_fa,
               cds_output_file,
               100000,
               -100,
-              80000)
+              30000)
     
 }

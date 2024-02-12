@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#SBATCH --time=16:00:00
-#SBATCH --mem=6G
+#SBATCH --time=36:00:00
+#SBATCH --mem=12G
 #SBATCH --output=/home/jd2thomp/scratch/microplastics_v2/genome_guided_assembly/nuclear_genome/9_uniref90_searches/logs/9e_uniref90_search_transcripts.%A_%a.log
 #SBATCH --cpus-per-task=16
 #SBATCH --array=1-1000

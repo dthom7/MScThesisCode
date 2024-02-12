@@ -1,14 +1,16 @@
 #!/bin/bash
 
 #SBATCH --time=4:00:00
-#SBATCH --mem=4G
-#SBATCH --output=/home/jd2thomp/scratch/microplastics_v2/genome_guided_assembly/nuclear_genome/7_trinotate/logs/7d_generate_reports_with_uniref90.%j.log
+#SBATCH --mem=2G
+#SBATCH --output=/home/jd2thomp/scratch/microplastics_v2/genome_guided_assembly/nuclear_genome/7_trinotate/logs/7c_generate_reports.%j.log
 
 #### Set bash flags
 set -o errexit
 set -o pipefail
 set -o nounset
 # set -o xtrace # Uncomment for debugging
+
+#### Set cpu/mem variables
 
 #### Load modules
 module load perl/5.30.2
@@ -24,7 +26,7 @@ module load tmhmm/2.0c
 
 #### Directories
 readonly base_dir=/home/jd2thomp/scratch/microplastics_v2/genome_guided_assembly/nuclear_genome/7_trinotate
-readonly output_dir=${base_dir}/output_with_uniref90
+readonly output_dir=${base_dir}/output
 readonly working_dir=${base_dir}/working_dir
 
 #### Other
@@ -33,10 +35,10 @@ export TRINOTATE_HOME=/home/jd2thomp/programs/Trinotate-Trinotate-v4.0.1
 export TRINOTATE_DATA_DIR=/project/6075059/jd2thomp/trinotate_data
 
 #### Output
-readonly report=${output_dir}/trinotate_report_with_uniref90.tsv
-readonly gene_annotation_summary=${output_dir}/gene_annotation_summary_with_uniref90.tsv
-readonly go_gene_annotation=${output_dir}/go_annotation_with_uniref90.gene.tsv
-readonly go_transcript_annotation=${output_dir}/go_annotation_with_uniref90.transcript.tsv
+readonly report=${output_dir}/trinotate_report.tsv
+readonly gene_annotation_summary=${output_dir}/gene_annotation_summary.tsv
+readonly go_gene_annotation=${output_dir}/go_annotation.gene.tsv
+readonly go_transcript_annotation=${output_dir}/go_annotation.transcript.tsv
 
 #### Run program
 echo "Beginning run"

@@ -2,7 +2,7 @@
 
 #SBATCH --time=1:00:00
 #SBATCH --mem=4G
-#SBATCH --output=/home/jd2thomp/scratch/microplastics_v2/genome_guided_assembly/nuclear_genome/7_trinotate/logs/7c_add_uniref90.%j.log
+#SBATCH --output=/home/jd2thomp/scratch/microplastics_v2/genome_guided_assembly/nuclear_genome/7_trinotate/logs/7b_add_uniref90.%j.log
 
 #### Set bash flags
 set -o errexit
@@ -24,7 +24,7 @@ module load tmhmm/2.0c
 
 #### Directories
 readonly base_dir=/home/jd2thomp/scratch/microplastics_v2/genome_guided_assembly/nuclear_genome/7_trinotate
-readonly output_dir=${base_dir}/output_with_uniref90
+readonly output_dir=${base_dir}/output
 readonly working_dir=${base_dir}/working_dir
 readonly input_dir=${base_dir}/input_from_graham
 
